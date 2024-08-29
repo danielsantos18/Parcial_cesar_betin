@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let producto of carrito">
+      <ion-thumbnail slot="start">
+        <img [src]="producto.image" alt="{{ producto.title }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ producto.title }}</h2>
+        <p>Price: {{ producto.price | currency:'USD' }}</p>
+      </ion-label>
+      <ion-button fill="clear" color="danger" (click)="removerCarrito(producto.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title>Total: {{ total | currency:'USD' }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button expand="full" (click)="pagar()">Pay</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

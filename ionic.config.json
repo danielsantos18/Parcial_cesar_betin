@@ -1,0 +1,7 @@
+{
+  "name": "Ecommerce-Cesar-Betin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
